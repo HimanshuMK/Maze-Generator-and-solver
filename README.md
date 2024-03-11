@@ -1,6 +1,6 @@
 # Maze-Generator-and-solver
 
-This C++ program generates a random maze using a recursive backtracking algorithm and solves it using a simple depth-first search approach. The maze is displayed using the SDL2 library, providing a visual representation of the maze generation and solving process.
+This C++ program generates a random maze using a recursive backtracking algorithm and solves it. The maze is displayed using the SDL2 library, providing a visual representation of the maze generation and solving process.
 
 ![maze](https://github.com/HimanshuMK/Maze-Generator-and-solver/assets/105967041/a8ab9e08-5766-4f2f-ab56-f8def5eba60f)
 
