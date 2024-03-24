@@ -20,20 +20,20 @@ enum CellType
     Path,
     Start,
     End,
-    VISITED
+    SOLVISITED
 };
 
 struct Cell
 {
     CellType type;
-    bool visited;
+    bool genvisited;
 };
 
 vector<vector<Cell>> maze(MazeSizeY, vector<Cell>(MazeSizeX, {Wall, false}));
 
 void generateMaze(int x, int y)
 {
-    maze[y][x].visited = true;
+    maze[y][x].genvisited = true;
 
     int moves[4][2] = {{0, -2}, {0, 2}, {-2, 0}, {2, 0}};
     random_shuffle(begin(moves), end(moves)); // randomly shuffle moves
@@ -43,7 +43,7 @@ void generateMaze(int x, int y)
         int newX = x + moves[i][0];
         int newY = y + moves[i][1];
 
-        if (newX > 0 && newX < MazeSizeX - 1 && newY > 0 && newY < MazeSizeY - 1 && !maze[newY][newX].visited)
+        if (newX > 0 && newX < MazeSizeX - 1 && newY > 0 && newY < MazeSizeY - 1 && !maze[newY][newX].genvisited)
         {
             maze[y + moves[i][1] / 2][x + moves[i][0] / 2].type = Path;
             maze[newY][newX].type = Path;
@@ -77,7 +77,7 @@ void renderMaze()
             case End:
                 SDL_SetRenderDrawColor(gRenderer, 0, 0, 255, 255);
                 break;
-            case VISITED:
+            case SOLVISITED:
                 SDL_SetRenderDrawColor(gRenderer, 128, 128, 128, 255);
                 break;
             }
@@ -96,7 +96,7 @@ void delay(int milliseconds)
 
 bool isValidMove(int x, int y)
 {
-    return (x >= 0 && x < MazeSizeX && y >= 0 && y < MazeSizeY && maze[y][x].type != Wall && maze[y][x].type != VISITED);
+    return (x >= 0 && x < MazeSizeX && y >= 0 && y < MazeSizeY && maze[y][x].type != Wall && maze[y][x].type != SOLVISITED);
 }
 
 bool SolveBack(int x, int y)
@@ -106,7 +106,7 @@ bool SolveBack(int x, int y)
         return true;
     }
 
-    maze[y][x].type = VISITED;
+    maze[y][x].type = SOLVISITED;
     renderMaze();
     delay(50);
 
