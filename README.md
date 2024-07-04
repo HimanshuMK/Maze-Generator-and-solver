@@ -3,9 +3,10 @@
 Welcome to the Maze Generator and Solver project! This project demonstrates two different implementations of maze generation and solving algorithms using Depth-First Search (DFS). The first implementation uses recursion, while the second one uses a stack data structure.
 
 ## Recursion 
-![Maze Generation and Solving](https://github.com/HimanshuMK/Maze-Generator-and-solver/assets/105967041/a8ab9e08-5766-4f2f-ab56-f8def5eba60f)
+![MazeRecursion](https://github.com/HimanshuMK/Maze-Generator-and-solver/assets/105967041/a8ab9e08-5766-4f2f-ab56-f8def5eba60f)
 
 ## Using Stack
+![mazeStack](https://github.com/HimanshuMK/Maze-Generator-and-solver/assets/105967041/16055eba-51bf-4d6b-b5ca-1b47a6e817ac)
 
 ## Table of Contents
 - [Introduction](#introduction)
